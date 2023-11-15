@@ -163,15 +163,15 @@ def main():
           if nivel1_button.draw(screen):
             print("Click a nivel 1")
             pygame.mixer.music.stop()
-            from nivel1facil import nivel1_
-            nivel1_()
+            from nivel1f import nivel1facil_
+            nivel1facil_()
 
 
           if nivel2_button.draw(screen):
             print("Click a nivel 2")
             pygame.mixer.music.stop()
-            from nivel2 import nivel2
-            nivel2()
+            from nivel2f import nivel2facil_
+            nivel2facil_()
 
           if nivel3_button.draw(screen):
             print("Inicio")

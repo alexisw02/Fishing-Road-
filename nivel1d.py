@@ -6,7 +6,7 @@ import os
 import button
 from pygame.locals import *
 
-def nivel2():
+def nivel1dificil():
     pygame.init()
 
     #aqui configuras el ancho de la pantalla
@@ -20,7 +20,7 @@ def nivel2():
 
 
     # Carga de imágenes y música
-    lago = pygame.image.load("imagenes/Fondos/fondorio.png").convert_alpha()
+    lago = pygame.image.load("imagenes/Fondos/castillolago.png").convert_alpha()
     lago = pygame.transform.scale(lago, (Ancho, Alto))
 
     pygame.mixer.music.load('musica/sonidodenivel1.mp3')
