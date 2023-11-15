@@ -1,0 +1,7 @@
+Desde main importo nivel1
+
+desde nivel1 import win
+
+desde win importo main
+
+desde main importo nivel1
