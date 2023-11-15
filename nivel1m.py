@@ -6,7 +6,7 @@ import os
 import button
 from pygame.locals import *
 
-def nivel1medio():
+def nivel1medio_():
     pygame.init()
 
     #aqui configuras el ancho de la pantalla
@@ -33,7 +33,7 @@ def nivel1medio():
 
     run = True
     while True:
-        jugadorX = 50
+        jugadorX = 10
         jugadorY = 215
         jugadorx_change = 0
         jugadors3=jugadors1
@@ -62,13 +62,13 @@ def nivel1medio():
                     pygame.draw.rect(surface, "green", (self.x, self.y, self.w * ratio, self.h))
             
         #Barra de vida
-        health_bar = HealthBar(10, 30, 300, 10, 4000)
+        health_bar = HealthBar(10, 50, 300, 10, 4000)
         health_bar.hp = 4000
 
         #Arpon
         arpon = pygame.image.load('imagenes/Personaje/arpon.png').convert_alpha()
-        arponX=120
-        arponY=125
+        arponX=20
+        arponY=-50
         arponlimit=28+0
         arpony_change=0
 
@@ -158,13 +158,13 @@ def nivel1medio():
                     if event.key == pygame.K_LEFT:
                         jugadorx_change = -3
                         jugadors3 = jugadors2
-                        arponX = jugadorX-30
+                        arponX = jugadorX+40
                         arponlimit = 100
                         #screen.blit(jugadors, (jugadorX, jugadorY))
                     elif event.key == pygame.K_RIGHT:
                         jugadorx_change = 3
                         jugadors3 = jugadors1
-                        arponX = jugadorX+110
+                        arponX = jugadorX+10
                     elif event.key == pygame.K_DOWN:
                         arpony_change = 2
                 elif event.type == pygame.KEYUP:
@@ -174,15 +174,15 @@ def nivel1medio():
 
                 #Mover jugador
             jugadorX += jugadorx_change
-            jugadorX = max(10, min(jugadorX, 1050))  # Asegurate de que el jugador no salga de la pantalla
+            jugadorX = max(-10, min(jugadorX, 1100))  # Asegurate de que el jugador no salga de la pantalla
                 
             #Mover arponX
             arponX += jugadorx_change
-            arponX = max(-10, min(arponX, 1150))
+            arponX = max(25, min(arponX, 1110))
 
             #Mover arponY
             arponY += arpony_change
-            arponY= max(225, min(arponY, 620))
+            arponY= max(290, min(arponY, 620))
             
             #Mostrar jugador
             screen.blit(jugadors3, (jugadorX, jugadorY))

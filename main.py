@@ -161,7 +161,6 @@ def main():
           screen.blit(BG, (0,0))
 
           if nivel1_button.draw(screen):
-            print("Click a nivel 1")
             pygame.mixer.music.stop()
             from nivel1f import nivel1facil_
             nivel1facil_()

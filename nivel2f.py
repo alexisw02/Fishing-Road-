@@ -67,8 +67,8 @@ def nivel2facil_():
 
         #Arpon
         arpon = pygame.image.load('imagenes/Personaje/arpon.png').convert_alpha()
-        arponX=120
-        arponY=125
+        arponX=20 #MODIFICAR A 20
+        arponY=50 #MODIFICAR A 50
         arponlimit=28+0
         arpony_change=0
 
@@ -158,13 +158,13 @@ def nivel2facil_():
                     if event.key == pygame.K_LEFT:
                         jugadorx_change = -3
                         jugadors3 = jugadors2
-                        arponX = jugadorX-30
+                        arponX = jugadorX+40 #MODIFICAR A +40
                         arponlimit = 100
                         #screen.blit(jugadors, (jugadorX, jugadorY))
                     elif event.key == pygame.K_RIGHT:
                         jugadorx_change = 3
                         jugadors3 = jugadors1
-                        arponX = jugadorX+110
+                        arponX = jugadorX+10 #MODIFICAR A +10
                     elif event.key == pygame.K_DOWN:
                         arpony_change = 2
                 elif event.type == pygame.KEYUP:
@@ -174,16 +174,16 @@ def nivel2facil_():
 
                 #Mover jugador
             jugadorX += jugadorx_change
-            jugadorX = max(10, min(jugadorX, 1050))  # Asegurate de que el jugador no salga de la pantalla
-                
+            jugadorX = max(-10, min(jugadorX, 1100))  # Asegurate de que el jugador no salga de la pantalla
+                        #MODIFICAR -10   #MODIFICAR 1100
             #Mover arponX
             arponX += jugadorx_change
-            arponX = max(-10, min(arponX, 1150))
-
+            arponX = max(25, min(arponX, 1110))
+                        #MODIFICAR 25, MODIFICAR 1110
             #Mover arponY
             arponY += arpony_change
-            arponY= max(225, min(arponY, 620))
-            
+            arponY= max(290, min(arponY, 620))
+                        #MODIFICAR 290
             #Mostrar jugador
             screen.blit(jugadors3, (jugadorX, jugadorY))
 
