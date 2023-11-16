@@ -8,9 +8,12 @@ from pygame.locals import *
 
 def nivel1facil_():
     pygame.init()
-
+    
+    #Paleta de colores en formato RGB
     BLANCO = (255, 255, 255)
     NEGRO = (0, 0, 0)
+    ROJO = (255, 0, 0)
+    VERDE = (0, 255, 0)
 
     #aqui configuras el ancho de la pantalla
     Ancho, Alto = 1200, 680
@@ -105,46 +108,46 @@ def nivel1facil_():
             'x':100,
             'y': random.randint(100, 850),
             'y':700,
-            'x_change': 0.2,
+            'x_change': 2,
             'y_change': 0.2,
             'img': basuras_a
-        })
+         })
             basuras.append({
             'x': random.randint(200, 700),
             'x':200,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 0.2,
+            'x_change': 2,
             'y_change': 0.2,
             'img': basuras_b
-        })
+            })
             basuras.append({
             'x': random.randint(300, 700),
             'x':300,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 0.2,
+            'x_change': 2,
             'y_change': 0.2,
             'img': basuras_c
-        })
+            })
             basuras.append({
             'x': random.randint(400, 700),
             'x':400,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 0.2,
+            'x_change': 2,
             'y_change': 0.2,
             'img': basuras_d
-        })
+            })
             basuras.append({
             'x': random.randint(500, 700),
             'x':500,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 0.2,
+            'x_change': 2,
             'y_change': 0.2,
             'img': basuras_f
-        })
+            })
 
             #inicio de bucle
         running = True  
@@ -208,7 +211,7 @@ def nivel1facil_():
                     basura['x'] = random.randint(250, 700)
 
                 # Si la basura sale de la pantalla, reinicia su posición
-                if basura['y'] > 1000:
+                if basura['x'] > 1000:
                     basura['y'] = random.randint(390, 620)
                     basura['x'] = random.randint(10, 1000)
                 
@@ -220,13 +223,12 @@ def nivel1facil_():
             health_bar.draw(screen)
 
             #Mostrar level1
-            level1_rec = pygame.image.load('imagenes/level1rec.png').convert_alpha()
+            level1_rec = pygame.image.load('imagenes/level1.png').convert_alpha()
             screen.blit(level1_rec, (520,10))
             objetivo1 = pygame.image.load('imagenes/objetivo1.png').convert_alpha()
-            screen.blit(objetivo1, (10, 10))
+            screen.blit(objetivo1, (10,10))
             puntuacion = pygame.image.load('imagenes/puntuacion.png').convert_alpha()
-            screen.blit(puntuacion, (10, 50))
-
+            screen.blit(puntuacion, (10,50))
             #Decremento
             health_bar.hp -= 1
 
@@ -251,7 +253,7 @@ def nivel1facil_():
         
             pygame.display.update()
 
-def victory(): 
+def victory():
     # Inicializa Pygame
     pygame.init()
 
@@ -339,3 +341,4 @@ def victory():
 
             #Actualizamos los cambios realizados en la pantalla
             pygame.display.update()
+        

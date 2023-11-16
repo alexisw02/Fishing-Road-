@@ -1,5 +1,5 @@
 import pygame
-
+lago = pygame.image.load("imagenes/Fondos/fondorio.png").convert_alpha()
 class HealthBar():
             def __init__(self, x, y, w, h, max_hp):
                 self.x = x

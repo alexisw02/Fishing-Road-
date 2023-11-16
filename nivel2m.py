@@ -8,6 +8,12 @@ from pygame.locals import *
 
 def nivel2medio_():
     pygame.init()
+    
+    #Paleta de colores en formato RGB
+    BLANCO = (255, 255, 255)
+    NEGRO = (0, 0, 0)
+    ROJO = (255, 0, 0)
+    VERDE = (0, 255, 0)
 
     #aqui configuras el ancho de la pantalla
     Ancho, Alto = 1200, 680
@@ -33,7 +39,7 @@ def nivel2medio_():
 
     run = True
     while True:
-        jugadorX = 50
+        jugadorX = 10
         jugadorY = 215
         jugadorx_change = 0
         jugadors3=jugadors1
@@ -62,13 +68,13 @@ def nivel2medio_():
                     pygame.draw.rect(surface, "green", (self.x, self.y, self.w * ratio, self.h))
             
         #Barra de vida
-        health_bar = HealthBar(10, 30, 300, 10, 4000)
+        health_bar = HealthBar(10, 100, 300, 10, 4000)
         health_bar.hp = 4000
 
         #Arpon
         arpon = pygame.image.load('imagenes/Personaje/arpon.png').convert_alpha()
-        arponX=20 #MODIFICAR A 20
-        arponY=50 #MODIFICAR A 50
+        arponX=20
+        arponY=-50
         arponlimit=28+0
         arpony_change=0
 
@@ -96,52 +102,52 @@ def nivel2medio_():
         basuras_f = pygame.image.load('imagenes/Basura/LLANTA.png').convert_alpha()
         basuras = []
 
-        #for i in range(3):  # Crear 10 basuras
-        basuras.append({
+        for i in range(2):  # Crear 10 basuras
+            basuras.append({
             'x': random.randint(100, 700),
             'x':100,
             'y': random.randint(100, 850),
             'y':700,
-            'x_change': 0.2,
+            'x_change': 2,
             'y_change': 0.2,
             'img': basuras_a
-        })
-        basuras.append({
+         })
+            basuras.append({
             'x': random.randint(200, 700),
             'x':200,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 0.2,
+            'x_change': 2,
             'y_change': 0.2,
             'img': basuras_b
-        })
-        basuras.append({
+            })
+            basuras.append({
             'x': random.randint(300, 700),
             'x':300,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 0.2,
+            'x_change': 2,
             'y_change': 0.2,
             'img': basuras_c
-        })
-        basuras.append({
+            })
+            basuras.append({
             'x': random.randint(400, 700),
             'x':400,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 0.2,
+            'x_change': 2,
             'y_change': 0.2,
             'img': basuras_d
-        })
-        basuras.append({
+            })
+            basuras.append({
             'x': random.randint(500, 700),
             'x':500,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 0.2,
+            'x_change': 2,
             'y_change': 0.2,
             'img': basuras_f
-        })
+            })
 
             #inicio de bucle
         running = True  
@@ -158,13 +164,13 @@ def nivel2medio_():
                     if event.key == pygame.K_LEFT:
                         jugadorx_change = -3
                         jugadors3 = jugadors2
-                        arponX = jugadorX+40 #MODIFICAR A +40
+                        arponX = jugadorX+40
                         arponlimit = 100
                         #screen.blit(jugadors, (jugadorX, jugadorY))
                     elif event.key == pygame.K_RIGHT:
                         jugadorx_change = 3
                         jugadors3 = jugadors1
-                        arponX = jugadorX+10 #MODIFICAR A +10
+                        arponX = jugadorX+10
                     elif event.key == pygame.K_DOWN:
                         arpony_change = 2
                 elif event.type == pygame.KEYUP:
@@ -175,15 +181,15 @@ def nivel2medio_():
                 #Mover jugador
             jugadorX += jugadorx_change
             jugadorX = max(-10, min(jugadorX, 1100))  # Asegurate de que el jugador no salga de la pantalla
-                        #MODIFICAR -10   #MODIFICAR 1100
+                
             #Mover arponX
             arponX += jugadorx_change
             arponX = max(25, min(arponX, 1110))
-                        #MODIFICAR 25, MODIFICAR 1110
+
             #Mover arponY
             arponY += arpony_change
             arponY= max(290, min(arponY, 620))
-                        #MODIFICAR 290
+            
             #Mostrar jugador
             screen.blit(jugadors3, (jugadorX, jugadorY))
 
@@ -193,8 +199,8 @@ def nivel2medio_():
             #Mostrar y mover basuras
             for basura in basuras:
                 screen.blit(basura['img'], (basura['x'], basura['y']))
-                #basura['x'] += basura['x_change']
-                basura['y'] += basura['y_change']
+                basura['x'] += basura['x_change']
+                #basura['y'] += basura['y_change']
                 if str(basura['img'])=="<Surface(64x64x32 SW)>":
                     imgin=64
                 else:
@@ -205,21 +211,24 @@ def nivel2medio_():
                     basura['x'] = random.randint(250, 700)
 
                 # Si la basura sale de la pantalla, reinicia su posición
-                if basura['y'] > Alto:
-                    basura['y'] = 390
-                    basura['x'] = random.randint(250, 700)
+                if basura['x'] > 1000:
+                    basura['y'] = random.randint(390, 620)
+                    basura['x'] = random.randint(10, 1000)
                 
                 # Mostrar puntuación
-            score_value = myfont.render("Score: " + str(score), True, (255, 255, 255))
-            screen.blit(score_value, (10, 10))
+            score_value = myfont.render("Score: " + str(score), True, (NEGRO))
+            screen.blit(score_value, (85, 55))
 
             #Mostrar Tiempo
             health_bar.draw(screen)
 
             #Mostrar level1
-            level1_rec = pygame.image.load('imagenes/level1rec.png').convert_alpha()
+            level1_rec = pygame.image.load('imagenes/level1.png').convert_alpha()
             screen.blit(level1_rec, (520,10))
-
+            objetivo1 = pygame.image.load('imagenes/objetivo1.png').convert_alpha()
+            screen.blit(objetivo1, (10,10))
+            puntuacion = pygame.image.load('imagenes/puntuacion.png').convert_alpha()
+            screen.blit(puntuacion, (10,50))
             #Decremento
             health_bar.hp -= 1
 
