@@ -20,23 +20,23 @@ def main():
   pygame.mixer.music.play(-1)
 
   #Variable del control del volumen
-  musica_mute = False
-  original_volume = 0.5
+  #musica_mute = False
+  #original_volume = 0.5
 
   #Variables del juego
   game_paused = False
   menu_state = "main"
-  musica_silenciada = False
+  #musica_silenciada = False
 
   #Definir fuentes
-  font = pygame.font.SysFont("arialblack", 40)
+  #font = pygame.font.SysFont("arialblack", 40)
 
   # Paleta de colores en formato RGB
-  BLANCO = (255, 255, 255)
-  NEGRO = (0, 0, 0)
-  ROJO = (255, 0, 0)
-  VERDE = (0, 255, 0)
-  AZUL = (0, 0, 255)
+  #BLANCO = (255, 255, 255)
+  #NEGRO = (0, 0, 0)
+  #ROJO = (255, 0, 0)
+  #VERDE = (0, 255, 0)
+  #AZUL = (0, 0, 255)
 
   #Fondo del juego
   BG = pygame.image.load("imagenes/Fondos/fondo.png")
@@ -105,6 +105,7 @@ def main():
       salir_button = button.Button(660, 465, salir_imagen, 1)
       home_button = button.Button(10, 10, home_imagen, 1)
       regresar_button = button.Button(10, 290, regresar_imagen, 1)
+      regresar1_button = button.Button(10, 550, regresar_imagen, 1)
       avanzar_button = button.Button(1070, 290, avanzar_imagen, 1)
       cp1_button = button.Button(165, 137, cp1, 1)
       cp2_button = button.Button(165, 137, cp2, 1)
@@ -164,6 +165,9 @@ def main():
           if botondificil_button.draw(screen):
             menu_state = "nivelesdificil"
 
+          if home_button.draw(screen):
+            menu_state = "main"
+
         if menu_state == "niveleseasy":
           screen.blit(BG, (0,0))
 
@@ -183,8 +187,8 @@ def main():
             from nivel1d import nivel1dificil_
             nivel1dificil_()
 
-          if home_button.draw(screen):
-            menu_state = "main"
+          if regresar1_button.draw(screen):
+            menu_state = "jugar"
         
         if menu_state == "nivelesdificil":
           screen.blit(BG, (0,0))
@@ -205,8 +209,8 @@ def main():
             from nivel2d import nivel2dificil_
             nivel2dificil_()
 
-          if home_button.draw(screen):
-            menu_state = "main"
+          if regresar1_button.draw(screen):
+            menu_state = "jugar"
 
         #Introducción de elementos en boton opciones
         #Estado del juego: En la pantalla opciones
