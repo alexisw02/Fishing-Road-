@@ -47,9 +47,6 @@ def main():
     screen.blit(img, (x, y))
     
   #Bucle principal del juego
-
-  #def main_():
-
   run = True
   while run:
 

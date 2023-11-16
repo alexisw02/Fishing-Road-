@@ -331,5 +331,4 @@ def victory():
                     pygame.quit()
 
             #Actualizamos los cambios realizados en la pantalla
-            pygame.display.update()
-        
+            pygame.display.update()     
