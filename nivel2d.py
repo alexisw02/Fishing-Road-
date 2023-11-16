@@ -102,7 +102,7 @@ def nivel2dificil_():
         basuras_f = pygame.image.load('imagenes/Basura/LLANTA.png').convert_alpha()
         basuras = []
 
-        for i in range(2):  # Crear 10 basuras
+        for i in range(1):  # Crear 10 basuras
             basuras.append({
             'x': random.randint(100, 700),
             'x':100,
@@ -111,7 +111,7 @@ def nivel2dificil_():
             'x_change': 2,
             'y_change': 0.2,
             'img': basuras_a
-         })
+        })
             basuras.append({
             'x': random.randint(200, 700),
             'x':200,
@@ -120,7 +120,7 @@ def nivel2dificil_():
             'x_change': 2,
             'y_change': 0.2,
             'img': basuras_b
-            })
+        })
             basuras.append({
             'x': random.randint(300, 700),
             'x':300,
@@ -129,7 +129,7 @@ def nivel2dificil_():
             'x_change': 2,
             'y_change': 0.2,
             'img': basuras_c
-            })
+        })
             basuras.append({
             'x': random.randint(400, 700),
             'x':400,
@@ -138,7 +138,7 @@ def nivel2dificil_():
             'x_change': 2,
             'y_change': 0.2,
             'img': basuras_d
-            })
+        })
             basuras.append({
             'x': random.randint(500, 700),
             'x':500,
@@ -147,7 +147,7 @@ def nivel2dificil_():
             'x_change': 2,
             'y_change': 0.2,
             'img': basuras_f
-            })
+        })
 
             #inicio de bucle
         running = True  
@@ -230,10 +230,10 @@ def nivel2dificil_():
             puntuacion = pygame.image.load('imagenes/puntuacion.png').convert_alpha()
             screen.blit(puntuacion, (10,50))
             #Decremento
-            health_bar.hp -= 1
+            health_bar.hp -= 10
 
             #Youwin dectecta
-            if score == 50:
+            if score == 80:
                 youwin = True
 
             if youwin == True:
