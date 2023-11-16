@@ -92,6 +92,7 @@ def main():
       texthook_imagen = pygame.image.load('imagenes/Titulo/hooktext.png').convert_alpha()
       textmenu_imagen = pygame.image.load('imagenes/Titulo/openmenutext.png').convert_alpha()
       botoneasy_imagen = pygame.image.load('imagenes/Botones/botoneasy.png').convert_alpha()
+      botondificil_imagen = pygame.image.load('imagenes/Botones/botonhard.png').convert_alpha()
 
       #Funcion para darle uso al boton después de definirlo
       jugar_button = button.Button(490, 270, jugar_imagen, 1)
@@ -130,6 +131,7 @@ def main():
       hooktext_img = button.Button(465, 550, texthook_imagen, 1)
       menutext_img = button.Button(630, 200, textmenu_imagen, 1)
       botoneasy_button = button.Button(430, 170, botoneasy_imagen, 1)
+      botondificil_button = button.Button(430, 450, botondificil_imagen, 1)
 
       #Función para revisar si el juego está pausado
       if game_paused == False:
@@ -165,8 +167,8 @@ def main():
           if botoneasy_button.draw(screen):
             menu_state = "niveleseasy"
 
-          #if botondificil_button.draw(screen):
-            #menu_state = "nivelesdificil"
+          if botondificil_button.draw(screen):
+            menu_state = "nivelesdificil"
 
         if menu_state == "niveleseasy":
           screen.blit(BG, (0,0))
@@ -190,27 +192,27 @@ def main():
           if home_button.draw(screen):
             menu_state = "main"
         
-        #if menu_state == "nivelesdificil":
-          #screen.blit(BG, (0,0))
+        if menu_state == "nivelesdificil":
+          screen.blit(BG, (0,0))
 
-          #if nivel1_button.draw(screen):
-            #pygame.mixer.music.stop()
-            #from nivel1f import nivel1facil_
-            #nivel1facil_()
+          if nivel1_button.draw(screen):
+            pygame.mixer.music.stop()
+            from nivel2f import nivel2facil_
+            nivel2facil_()
 
-          #i3f nivel2_button.draw(screen):
-            #print("Click a nivel 2")
-            #pygame.mixer.music.stop()
-            #from nivel1m import nivel1medio_
-            #nivel1medio_()
+          if nivel2_button.draw(screen):
+            print("Click a nivel 2")
+            pygame.mixer.music.stop()
+            from nivel2m import nivel2medio_
+            nivel2medio_()
 
-          #if nivel3_button.draw(screen):
-            #print("Inicio")
-            #from nivel1d import nivel1dificil_
-            #nivel1dificil_()
+          if nivel3_button.draw(screen):
+            print("Inicio")
+            from nivel2d import nivel2dificil_
+            nivel2dificil_()
 
-          #if home_button.draw(screen):
-            #menu_state = "main"
+          if home_button.draw(screen):
+            menu_state = "main"
 
         #Introducción de elementos en boton opciones
         #Estado del juego: En la pantalla opciones
