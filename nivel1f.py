@@ -213,11 +213,11 @@ def nivel1facil_():
                 # Si la basura sale de la pantalla, reinicia su posición
                 if basura['x'] > 1000:
                     basura['y'] = random.randint(390, 620)
-                    basura['x'] = random.randint(10, 1000)
+                    basura['x'] = random.randint(10, 20)
                 
                 # Mostrar puntuación
             score_value = myfont.render("Score: " + str(score), True, (NEGRO))
-            screen.blit(score_value, (85, 55))
+            screen.blit(score_value, (145, 55))
 
             #Mostrar Tiempo
             health_bar.draw(screen)
