@@ -2,7 +2,7 @@ def main():
   #Función para añadir librerías
   import pygame
   import button
-  import sys
+  #import sys
 
   #Funcion para iniciar pygame
   pygame.init()

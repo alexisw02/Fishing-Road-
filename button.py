@@ -23,7 +23,7 @@ class Button():
 
 		if pygame.mouse.get_pressed()[0] == 0:
 			self.clicked = False
-
+		
 		#draw button on pantalla
 		surface.blit(self.image, (self.rect.x, self.rect.y))
 
