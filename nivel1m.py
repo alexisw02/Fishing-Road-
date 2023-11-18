@@ -26,7 +26,7 @@ def nivel1medio_():
 
 
     # Carga de imágenes y música
-    lago = pygame.image.load("imagenes/Fondos/castillolago.png").convert_alpha()
+    lago = pygame.image.load("imagenes/Fondos/castillolago2.png").convert_alpha()
     lago = pygame.transform.scale(lago, (Ancho, Alto))
 
     pygame.mixer.music.load('musica/sonidodenivel1.mp3')
@@ -68,8 +68,8 @@ def nivel1medio_():
                     pygame.draw.rect(surface, "green", (self.x, self.y, self.w * ratio, self.h))
             
         #Barra de vida
-        health_bar = HealthBar(10, 100, 300, 10, 4000)
-        health_bar.hp = 4000
+        health_bar = HealthBar(110, 100, 300, 10, 4500)
+        health_bar.hp = 4500
 
         #Arpon
         arpon = pygame.image.load('imagenes/Personaje/arpon.png').convert_alpha()
@@ -207,17 +207,17 @@ def nivel1medio_():
                     imgin=32
                 if (basura['y']>=arponY and basura['y']<=arponY+70) and ((basura['x']>=arponX and basura['x']<=arponX+70)or(basura['x']+imgin>=arponX and basura['x']+imgin<=arponX+70)):
                     score+=1
-                    basura['y']=390
-                    basura['x'] = random.randint(250, 700)
+                    basura['y']=random.randint(390, 620)
+                    basura['x'] = random.randint(10, 50)
 
                 # Si la basura sale de la pantalla, reinicia su posición
-                if basura['x'] > 1000:
+                if basura['x'] > 1150:
                     basura['y'] = random.randint(390, 620)
-                    basura['x'] = random.randint(10, 1000)
+                    basura['x'] = random.randint(10, 50)
                 
                 # Mostrar puntuación
             score_value = myfont.render("Score: " + str(score), True, (NEGRO))
-            screen.blit(score_value, (85, 55))
+            screen.blit(score_value, (145, 55))
 
             #Mostrar Tiempo
             health_bar.draw(screen)
@@ -225,10 +225,12 @@ def nivel1medio_():
             #Mostrar level1
             level1_rec = pygame.image.load('imagenes/level1.png').convert_alpha()
             screen.blit(level1_rec, (520,10))
-            objetivo1 = pygame.image.load('imagenes/objetivo1.png').convert_alpha()
+            objetivo1 = pygame.image.load('imagenes/objetivo2.png').convert_alpha()
             screen.blit(objetivo1, (10,10))
             puntuacion = pygame.image.load('imagenes/puntuacion.png').convert_alpha()
             screen.blit(puntuacion, (10,50))
+            tiempo = pygame.image.load('imagenes/tiempo.png').convert_alpha()
+            screen.blit(tiempo, (10,90))
             #Decremento
             health_bar.hp -= 1
 

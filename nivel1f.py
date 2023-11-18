@@ -68,8 +68,8 @@ def nivel1facil_():
                     pygame.draw.rect(surface, "green", (self.x, self.y, self.w * ratio, self.h))
             
         #Barra de vida
-        health_bar = HealthBar(10, 100, 300, 10, 4000)
-        health_bar.hp = 4000
+        health_bar = HealthBar(110, 100, 300, 10, 8000)
+        health_bar.hp = 8000
 
         #Arpon
         arpon = pygame.image.load('imagenes/Personaje/arpon.png').convert_alpha()
@@ -102,13 +102,13 @@ def nivel1facil_():
         basuras_f = pygame.image.load('imagenes/Basura/LLANTA.png').convert_alpha()
         basuras = []
 
-        for i in range(2):  # Crear 10 basuras
+        for i in range(4):  # Crear 10 basuras
             basuras.append({
             'x': random.randint(100, 700),
             'x':100,
             'y': random.randint(100, 850),
             'y':700,
-            'x_change': 2,
+            'x_change': 0.5,
             'y_change': 0.2,
             'img': basuras_a
          })
@@ -117,7 +117,7 @@ def nivel1facil_():
             'x':200,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 0.5,
             'y_change': 0.2,
             'img': basuras_b
             })
@@ -126,7 +126,7 @@ def nivel1facil_():
             'x':300,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 0.5,
             'y_change': 0.2,
             'img': basuras_c
             })
@@ -135,7 +135,7 @@ def nivel1facil_():
             'x':400,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 0.5,
             'y_change': 0.2,
             'img': basuras_d
             })
@@ -144,7 +144,7 @@ def nivel1facil_():
             'x':500,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 0.5,
             'y_change': 0.2,
             'img': basuras_f
             })
@@ -207,13 +207,13 @@ def nivel1facil_():
                     imgin=32
                 if (basura['y']>=arponY and basura['y']<=arponY+70) and ((basura['x']>=arponX and basura['x']<=arponX+70)or(basura['x']+imgin>=arponX and basura['x']+imgin<=arponX+70)):
                     score+=1
-                    basura['y']=390
-                    basura['x'] = random.randint(250, 700)
+                    basura['y']=random.randint(390, 620)
+                    basura['x'] = random.randint(10, 50)
 
                 # Si la basura sale de la pantalla, reinicia su posición
-                if basura['x'] > 1000:
+                if basura['x'] > 1150:
                     basura['y'] = random.randint(390, 620)
-                    basura['x'] = random.randint(10, 20)
+                    basura['x'] = random.randint(10, 50)
                 
                 # Mostrar puntuación
             score_value = myfont.render("Score: " + str(score), True, (NEGRO))
@@ -229,6 +229,8 @@ def nivel1facil_():
             screen.blit(objetivo1, (10,10))
             puntuacion = pygame.image.load('imagenes/puntuacion.png').convert_alpha()
             screen.blit(puntuacion, (10,50))
+            tiempo = pygame.image.load('imagenes/tiempo.png').convert_alpha()
+            screen.blit(tiempo, (10,90))
             #Decremento
             health_bar.hp -= 1
 
