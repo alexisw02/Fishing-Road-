@@ -46,3 +46,6 @@ def gameover():
 
         #Actualiza la pantalla
         pygame.display.update()
+
+            #lago = pygame.image.load("imagenes/Fondos/fondorio.png").convert_alpha()
+            #lago = pygame.transform.scale(lago, (Ancho, Alto))

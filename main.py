@@ -11,7 +11,7 @@ def main():
   SCREEN_WIDTH = 1200
   SCREEN_HEIGHT = 680
   screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-  pygame.display.set_caption("Main Menu")
+  pygame.display.set_caption("Fishing Road")
   imagen_icono = pygame.image.load('imagenes/iconopesca.png')
   pygame.display.set_icon(imagen_icono)
 
@@ -42,9 +42,9 @@ def main():
   BG = pygame.image.load("imagenes/Fondos/fondo.png")
   BG = pygame.transform.scale(BG, (1200, 680))
 
-  def draw_text(text, font, text_col, x, y):
-    img = font.render(text, True, text_col)
-    screen.blit(img, (x, y))
+  #def draw_text(text, font, text_col, x, y):
+    #img = font.render(text, True, text_col)
+    #screen.blit(img, (x, y))
     
   #Bucle principal del juego
   run = True
@@ -139,8 +139,8 @@ def main():
             print("titulo2")
           if jugar_button.draw(screen):
             menu_state = "jugar"
-            if nivel1_button.draw(screen):
-              menu_state = "nivel1"
+            #sif nivel1_button.draw(screen):
+              #menu_state = "nivel1"
           if opciones_button.draw(screen):
             menu_state = "opciones"
           if creditos_button.draw(screen):
