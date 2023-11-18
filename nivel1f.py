@@ -82,8 +82,8 @@ def nivel1facil_():
                     pygame.draw.rect(surface, "green", (self.x, self.y, self.w * ratio, self.h))
             
         #Barra de vida
-        health_bar = HealthBar(10, 100, 300, 10, 4000)
-        health_bar.hp = 100
+        health_bar = HealthBar(80, 100, 300, 10, 4000)
+        health_bar.hp = 4000
 
         #Arpon
         arpon = pygame.image.load('imagenes/Personaje/arpon.png').convert_alpha()
@@ -241,11 +241,11 @@ def nivel1facil_():
                         # Si la basura sale de la pantalla, reinicia su posición
                         if basura['x'] > 1150:
                             basura['y'] = random.randint(390, 620)
-                            basura['x'] = random.randint(10, 20)
+                            basura['x'] = random.randint(10, 50)
                         
                         # Mostrar puntuación
-                    score_value = myfont.render("Score: " + str(score), True, (NEGRO))
-                    screen.blit(score_value, (145, 55))
+                    score_value = myfont.render("Score: " + str(score), True, (VERDE))
+                    screen.blit(score_value, (125, 55))
 
                     #Mostrar Tiempo
                     health_bar.draw(screen)

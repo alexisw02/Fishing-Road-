@@ -84,8 +84,8 @@ def nivel2facil_():
                     pygame.draw.rect(surface, "green", (self.x, self.y, self.w * ratio, self.h))
             
         #Barra de vida
-        health_bar = HealthBar(10, 100, 300, 10, 4000)
-        health_bar.hp = 100
+        health_bar = HealthBar(80, 100, 300, 10, 4000)
+        health_bar.hp = 4000
 
         #Arpon
         arpon = pygame.image.load('imagenes/Personaje/arpon.png').convert_alpha()
@@ -244,22 +244,24 @@ def nivel2facil_():
                         # Si la basura sale de la pantalla, reinicia su posición
                         if basura['x'] > 1000:
                             basura['y'] = random.randint(390, 620)
-                            basura['x'] = random.randint(10, 20)
+                            basura['x'] = random.randint(10, 50)
                         
                         # Mostrar puntuación
-                    score_value = myfont.render("Score: " + str(score), True, (NEGRO))
-                    screen.blit(score_value, (145, 55))
+                    score_value = myfont.render("Score: " + str(score), True, (ROJO))
+                    screen.blit(score_value, (125, 55))
 
                     #Mostrar Tiempo
                     health_bar.draw(screen)
 
                     #Mostrar level1
-                    level1_rec = pygame.image.load('imagenes/level1.png').convert_alpha()
+                    level1_rec = pygame.image.load('imagenes/level1d.png').convert_alpha()
                     screen.blit(level1_rec, (520,10))
                     objetivo1 = pygame.image.load('imagenes/objetivo1.png').convert_alpha()
                     screen.blit(objetivo1, (10,10))
-                    puntuacion = pygame.image.load('imagenes/puntuacion.png').convert_alpha()
+                    puntuacion = pygame.image.load('imagenes/puntuacion2.png').convert_alpha()
                     screen.blit(puntuacion, (10,50))
+                    tiempo = pygame.image.load("imagenes/tiempo2.png").convert_alpha()
+                    screen.blit(tiempo, (10, 90))
                     #Decremento
                     health_bar.hp -= 1
 
