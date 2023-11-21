@@ -62,8 +62,12 @@ def main():
       nivel1_imagen = pygame.image.load('imagenes/Botones/botonlvl1.png').convert_alpha()
       nivel2_imagen = pygame.image.load('imagenes/Botones/botonlvl2.png').convert_alpha()
       nivel3_imagen = pygame.image.load('imagenes/Botones/botonlvl3.png').convert_alpha()
+      nivel1hard_imagen = pygame.image.load('imagenes/Botones/botonlvl1hard.png').convert_alpha()
+      nivel2hard_imagen = pygame.image.load('imagenes/Botones/botonlvl2hard.png').convert_alpha()
+      nivel3hard_imagen = pygame.image.load('imagenes/Botones/botonlvl3hard.png').convert_alpha()
       home_imagen = pygame.image.load('imagenes/Botones/pantallaprincipal.png').convert_alpha()
       regresar_imagen = pygame.image.load('imagenes/Botones/botonregresar.png').convert_alpha()
+      regresarhard_imagen = pygame.image.load('imagenes/Botones/botonregresar1.png').convert_alpha()
       avanzar_imagen = pygame.image.load('imagenes/Botones/botonavanzar.png').convert_alpha()
       cp1 = pygame.image.load('imagenes/Comic/capitulo1.png').convert_alpha()
       cp2 = pygame.image.load('imagenes/Comic/capitulo2.png').convert_alpha()
@@ -96,9 +100,13 @@ def main():
       titulo1_button = button.Button(290, 30, titulo1_imagen, 1)
       titulo2_button = button.Button(420, 130, titulo2_imagen, 1)
       regresar_button = button.Button(332, 450, regreso_imagen, 1)
+      regresarhhard_button = button.Button(10, 550, regresarhard_imagen, 1)
       nivel1_button = button.Button(250, 300, nivel1_imagen, 1)
       nivel2_button = button.Button(525, 300, nivel2_imagen, 1)
       nivel3_button = button.Button(800, 300, nivel3_imagen, 1)
+      nivel1hard_button = button.Button(250, 300, nivel1hard_imagen, 1)
+      nivel2hard_button = button.Button(525, 300, nivel2hard_imagen, 1)
+      nivel3hard_button = button.Button(800, 300, nivel3hard_imagen, 1)
       salir_button = button.Button(660, 465, salir_imagen, 1)
       home_button = button.Button(10, 10, home_imagen, 1)
       regresar_button = button.Button(10, 290, regresar_imagen, 1)
@@ -190,23 +198,23 @@ def main():
         if menu_state == "nivelesdificil":
           screen.blit(BG, (0,0))
 
-          if nivel1_button.draw(screen):
+          if nivel1hard_button.draw(screen):
             pygame.mixer.music.stop()
             from nivel2f import nivel2facil_
             nivel2facil_()
 
-          if nivel2_button.draw(screen):
+          if nivel2hard_button.draw(screen):
             print("Click a nivel 2")
             pygame.mixer.music.stop()
             from nivel2m import nivel2medio_
             nivel2medio_()
 
-          if nivel3_button.draw(screen):
+          if nivel3hard_button.draw(screen):
             print("Inicio")
             from nivel2d import nivel2dificil_
             nivel2dificil_()
 
-          if regresar1_button.draw(screen):
+          if regresarhhard_button.draw(screen):
             menu_state = "jugar"
 
         #Introducción de elementos en boton opciones

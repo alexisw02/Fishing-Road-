@@ -40,7 +40,7 @@ def nivel1facil_():
     restart_imagen = pygame.image.load('imagenes/Botones/botonrestart.png').convert_alpha()
 
     #botones declarados
-    botonpausa_img = button.Button(1130, 10, botonpausa_imagen, 1)
+    botonpausa_img = button.Button(1100, 10, botonpausa_imagen, 1)
     #restart_img = pygame.tranform.scale(restart_imagen, (60, 60))
 
     #Colocar musica
@@ -82,8 +82,8 @@ def nivel1facil_():
                     pygame.draw.rect(surface, "green", (self.x, self.y, self.w * ratio, self.h))
             
         #Barra de vida
-        health_bar = HealthBar(80, 100, 300, 10, 4000)
-        health_bar.hp = 4000
+        health_bar = HealthBar(110, 94, 300, 16, 5000)
+        health_bar.hp = 5000
 
         #Arpon
         arpon = pygame.image.load('imagenes/Personaje/arpon.png').convert_alpha()

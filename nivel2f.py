@@ -34,7 +34,7 @@ def nivel2facil_():
     home_imagen = pygame.image.load('imagenes/Botones/pantallaprincipal.png').convert_alpha()
     botonnomute_imagen = pygame.image.load('imagenes/Botones/boton_nomuted.png').convert_alpha()
     botonmute_imagen = pygame.image.load('imagenes/Botones/boton_muted.png').convert_alpha()
-    botonpausa_imagen = pygame.image.load('imagenes/Botones/botonpausa.png').convert_alpha()
+    botonpausa_imagen = pygame.image.load('imagenes/Botones/botonpausa1.png').convert_alpha()
 
     #botones al ganar
     siguientenivel_imagen = pygame.image.load('imagenes/Botones/siguientenivel.png').convert_alpha()
@@ -42,7 +42,7 @@ def nivel2facil_():
     restart_imagen = pygame.image.load('imagenes/Botones/botonrestart.png').convert_alpha()
 
     #botones declarados
-    botonpausa_img = button.Button(1130, 10, botonpausa_imagen, 1)
+    botonpausa_img = button.Button(1100, 10, botonpausa_imagen, 1)
     #restart_img = pygame.tranform.scale(restart_imagen, (60, 60))
 
     #Colocar musica
@@ -475,7 +475,7 @@ def pause():
     menu_state = "fondopausa"
     
     # Carga de imágenes y música
-    lago = pygame.image.load("imagenes/Fondos/fondoparapausalvl1.png").convert_alpha()
+    lago = pygame.image.load("imagenes/Fondos/fondoparapausalvl2.png").convert_alpha()
     lago = pygame.transform.scale(lago, (Ancho, Alto))
 
     run = True

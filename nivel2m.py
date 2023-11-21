@@ -477,7 +477,7 @@ def pause():
     menu_state = "fondopausa"
     
     # Carga de imágenes y música
-    lago = pygame.image.load("imagenes/Fondos/fondoparapausalvl1.png").convert_alpha()
+    lago = pygame.image.load("imagenes/Fondos/fondoparapausalvl2.png").convert_alpha()
     lago = pygame.transform.scale(lago, (Ancho, Alto))
 
     run = True
