@@ -244,8 +244,8 @@ def nivel1facil_():
                             basura['x'] = random.randint(10, 50)
                         
                         # Mostrar puntuación
-                    score_value = myfont.render("Score: " + str(score), True, (VERDE))
-                    screen.blit(score_value, (125, 55))
+                    score_value = myfont.render(": " + str(score), True, (NEGRO))
+                    screen.blit(score_value, (185, 55))
 
                     #Mostrar Tiempo
                     health_bar.draw(screen)
@@ -263,7 +263,7 @@ def nivel1facil_():
                     health_bar.hp -= 1
 
                     #Youwin dectecta
-                    if score == 5:
+                    if score == 200:
                         youwin = True
 
                     if youwin == True:
@@ -464,9 +464,6 @@ def pause():
     screen = pygame.display.set_mode((Ancho, Alto))
     pygame.display.set_caption("Pause screen")
 
-    #pygame.mixer.music.load('musica/win.mp3')
-    #pygame.mixer.music.play()
-
     # Icono y título
     pygame.display.set_caption('Fishing Road')
     icono = pygame.image.load("imagenes/iconopesca.png")
@@ -476,7 +473,7 @@ def pause():
     menu_state = "fondopausa"
     
     # Carga de imágenes y música
-    lago = pygame.image.load("imagenes/Fondos/castillolago.png").convert_alpha()
+    lago = pygame.image.load("imagenes/Fondos/fondoparapausalvl1.png").convert_alpha()
     lago = pygame.transform.scale(lago, (Ancho, Alto))
 
     run = True
@@ -485,15 +482,17 @@ def pause():
         home_imagen = pygame.image.load('imagenes/Botones/pantallaprincipal1.png').convert_alpha()
         botonnomute_imagen = pygame.image.load('imagenes/Botones/boton_nomuted.png').convert_alpha()
         botonmute_imagen = pygame.image.load('imagenes/Botones/boton_muted.png').convert_alpha()
-        fondopausa_img = pygame.image.load('imagenes/Botones/gamepaused.png').convert_alpha()
         restart_imagen = pygame.image.load('imagenes/Botones/botonrestart1.png').convert_alpha()
+        pausetext_image = pygame.image.load('imagenes/Botones/pausetext.png').convert_alpha()
+        pauseoptions_image = pygame.image.load('imagenes/Botones/pauseoptions.png').convert_alpha()
 
         #Funcion para darle uso al boton después de definirlo
-        home_button1 = button.Button(500, 400, home_imagen, 1)
+        home_button1 = button.Button(25, 100, home_imagen, 1)
         botonson_button = button.Button(700, 300, botonnomute_imagen, 1)
         botonnoson_button = button.Button(325, 300, botonmute_imagen, 1)
-        fondopausa_image = button.Button(210, 70, fondopausa_img, 1)
-        restart_boton1 = button.Button(260, 400, restart_imagen, 1)
+        restart_boton1 = button.Button(25, 250, restart_imagen, 1)
+        pausetext_img = button.Button(375, 277, pausetext_image, 1)
+        pauseoption_img = button.Button(10, 40, pauseoptions_image, 1)
 
         #Función para revisar si el juego está pausado
         if game_paused == False:
@@ -503,10 +502,12 @@ def pause():
             if menu_state == "fondopausa":
                 screen.blit(lago, (0, 0))
 
-            if fondopausa_image.draw(screen):
-                print("Ganador texto")
-                #Regresar al home en caso de presionar
+            if pausetext_img.draw(screen):
+                print("Texto pausa")
             
+            if pauseoption_img.draw(screen):
+                print("Opciones")
+
             if home_button1.draw(screen):
                 from main import main
                 main()
@@ -522,3 +523,4 @@ def pause():
 
             #Actualizamos los cambios realizados en la pantalla
             pygame.display.update()
+nivel1facil_()
