@@ -26,7 +26,7 @@ def nivel2medio_():
 
 
     # Carga de imágenes y música
-    lago = pygame.image.load("imagenes/Fondos/fondorio.png").convert_alpha()
+    lago = pygame.image.load("imagenes/Fondos/fondorio3.png").convert_alpha()
     lago = pygame.transform.scale(lago, (Ancho, Alto))
 
     #botones en pausa
