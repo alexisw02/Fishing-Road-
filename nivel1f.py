@@ -250,7 +250,7 @@ def nivel1facil_():
                         
                         # Mostrar puntuación
                     score_value = myfont.render(": " + str(score), True, (NEGRO))
-                    screen.blit(score_value, (185, 55))
+                    screen.blit(score_value, (190, 50))
 
                     #Mostrar Tiempo
                     health_bar.draw(screen)
@@ -258,8 +258,6 @@ def nivel1facil_():
                     #Mostrar level1
                     level1_rec = pygame.image.load('imagenes/level1.png').convert_alpha()
                     screen.blit(level1_rec, (520, 10))
-                    objetivo1 = pygame.image.load('imagenes/objetivo1.png').convert_alpha()
-                    screen.blit(objetivo1, (10, 10))
                     puntuacion = pygame.image.load('imagenes/puntuacion.png').convert_alpha()
                     screen.blit(puntuacion, (10, 50))
                     tiempo = pygame.image.load("imagenes/tiempo.png").convert_alpha()

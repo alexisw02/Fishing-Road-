@@ -268,7 +268,7 @@ def nivel2facil_():
                     health_bar.hp -= 1
 
                     #Youwin dectecta
-                    if score == 5:
+                    if score == 100:
                         youwin = True
 
                     if youwin == True:

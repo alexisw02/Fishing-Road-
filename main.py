@@ -55,6 +55,7 @@ def main():
       
       #Cargamos las imagenes desarrolladas
       jugar_imagen = pygame.image.load("imagenes/Botones/botondeplay.png").convert_alpha()
+      jugar1_imagen = pygame.image.load("imagenes/Botones/botondeplay1.png").convert_alpha()
       opciones_imagen = pygame.image.load("imagenes/Botones/botondeconfiguracion.png").convert_alpha()
       creditos_imagen = pygame.image.load("imagenes/Botones/botondecreditos.png").convert_alpha()
       salir_imagen = pygame.image.load("imagenes/Botones/botondesalir.png").convert_alpha()
@@ -91,9 +92,30 @@ def main():
       textmenu_imagen = pygame.image.load('imagenes/Titulo/openmenutext.png').convert_alpha()
       botoneasy_imagen = pygame.image.load('imagenes/Botones/botoneasy.png').convert_alpha()
       botondificil_imagen = pygame.image.load('imagenes/Botones/botonhard.png').convert_alpha()
+      fondoobjetivos_imagen = pygame.image.load('imagenes/Fondos/objetivos.png').convert_alpha()
+      timelvl1f_imagen = pygame.image.load('imagenes/timelvl1f.png').convert_alpha()
+      objetivolvl1f_imagen = pygame.image.load('imagenes/objetivoslvl1f.png').convert_alpha()
+      timelvl2m_imagen = pygame.image.load('imagenes/timelvl1m.png').convert_alpha()
+      objetivolvl1m_imagen = pygame.image.load('imagenes/objetivoslvl1m.png').convert_alpha()
+      timelvl1d_imagen = pygame.image.load('imagenes/timelvl1d.png').convert_alpha()
+      objetivolvl1d_imagen = pygame.image.load('imagenes/objetivoslvl1d.png').convert_alpha()
+      timelvl2f_imagen = pygame.image.load('imagenes/timelvl2f.png').convert_alpha()
+      objetivolvl2f_imagen = pygame.image.load('imagenes/objetivoslvl2f.png').convert_alpha()
+      timelvl2m_imagen = pygame.image.load('imagenes/timelvl2m.png').convert_alpha()
+      objetivolvl2m_imagen = pygame.image.load('imagenes/objetivoslvl2m.png').convert_alpha()
+      timelvl2d_imagen = pygame.image.load('imagenes/timelvl2d.png').convert_alpha()
+      objetivolvl2d_imagen = pygame.image.load('imagenes/objetivoslvl2d.png').convert_alpha()
+      fondoobjetivos_imagen = pygame.transform.scale(fondoobjetivos_imagen, (1200, 680))
+      timelvl1f_imagen = pygame.image.load('imagenes/timelvl1f.png').convert_alpha()
+      timelvl1m_imagen = pygame.image.load('imagenes/timelvl1m.png').convert_alpha()
+      timelvl1d_imagen = pygame.image.load('imagenes/timelvl1d.png').convert_alpha()
+      timelvl2f_imagen = pygame.image.load('imagenes/timelvl2f.png').convert_alpha()
+      timelvl2m_imagen = pygame.image.load('imagenes/timelvl2m.png').convert_alpha()
+      timelvl2d_imagen = pygame.image.load('imagenes/timelvl2d.png').convert_alpha()
 
       #Funcion para darle uso al boton después de definirlo
       jugar_button = button.Button(490, 270, jugar_imagen, 1)
+      jugar1_button = button.Button(70, 50, jugar1_imagen, 1)
       opciones_button = button.Button(390, 465, opciones_imagen, 1)
       creditos_button = button.Button(525, 465, creditos_imagen, 1)
       #salir_button = button.Button(650, 470, salir_imagen, 1)
@@ -131,9 +153,22 @@ def main():
       hooktext_img = button.Button(465, 550, texthook_imagen, 1)
       menutext_img = button.Button(630, 200, textmenu_imagen, 1)
       botoneasy_button = button.Button(430, 170, botoneasy_imagen, 1)
+      fondoobjetivos_img = button.Button(0, 0, fondoobjetivos_imagen, 1)
       botondificil_button = button.Button(430, 450, botondificil_imagen, 1)
+      objetivolvl1facil_img = button.Button(100, 230, objetivolvl1f_imagen, 1)
+      objetivolvl1medio_img = button.Button(60, 230, objetivolvl1m_imagen, 1)
+      objetivolvl1dificil_img = button.Button(60, 230, objetivolvl1d_imagen, 1)
+      objetivolvl2facil_img = button.Button(70, 230, objetivolvl2f_imagen, 1)
+      objetivolvl2medio_img = button.Button(70, 230, objetivolvl2m_imagen, 1)
+      objetivolvl2dificil_img = button.Button(70, 230, objetivolvl2m_imagen, 1)
+      timelvl1f_imagen = button.Button(270, 470, timelvl1f_imagen, 1)
+      timelvl1m_imagen = button.Button(270, 470, timelvl1m_imagen, 1)
+      timelvl1d_imagen = button.Button(270, 470, timelvl1d_imagen, 1)
+      timelvl2f_imagen = button.Button(270, 470, timelvl2f_imagen, 1)
+      timelvl2m_imagen = button.Button(270, 470, timelvl2m_imagen, 1)
+      timelvl2d_imagen = button.Button(270, 470, timelvl2d_imagen, 1)
+      
 
-      #Función para revisar si el juego está pausado
       if game_paused == False:
 
         #Función para revisar el estado del menú
@@ -147,7 +182,7 @@ def main():
             print("titulo2")
           if jugar_button.draw(screen):
             menu_state = "jugar"
-            #sif nivel1_button.draw(screen):
+            #if nivel1_button.draw(screen):
               #menu_state = "nivel1"
           if opciones_button.draw(screen):
             menu_state = "opciones"
@@ -177,20 +212,25 @@ def main():
           screen.blit(BG, (0,0))
 
           if nivel1_button.draw(screen):
+            print("Click a nivel 1")
+            menu_state = "nivel1facil"
             pygame.mixer.music.stop()
-            from nivel1f import nivel1facil_
-            nivel1facil_()
+            #from nivel1f import nivel1facil_
+            #nivel1facil_()
 
           if nivel2_button.draw(screen):
             print("Click a nivel 2")
+            menu_state = "nivel1medio"
             pygame.mixer.music.stop()
-            from nivel1m import nivel1medio_
-            nivel1medio_()
+            #from nivel1m import nivel1medio_
+            #nivel1medio_()
 
           if nivel3_button.draw(screen):
-            print("Inicio")
-            from nivel1d import nivel1dificil_
-            nivel1dificil_()
+            print("Click a nivel 3")
+            menu_state = "nivel1dificil"
+            pygame.mixer.music.stop()
+            #from nivel1d import nivel1dificil_
+            #nivel1dificil_()
 
           if regresar1_button.draw(screen):
             menu_state = "jugar"
@@ -199,23 +239,141 @@ def main():
           screen.blit(BG, (0,0))
 
           if nivel1hard_button.draw(screen):
+            menu_state = "nivel2facil"
             pygame.mixer.music.stop()
-            from nivel2f import nivel2facil_
-            nivel2facil_()
+            print("Click a nivel 1")
+            #from nivel2f import nivel2facil_
+            #nivel2facil_()
 
           if nivel2hard_button.draw(screen):
             print("Click a nivel 2")
+            menu_state = "nivel2medio"
             pygame.mixer.music.stop()
-            from nivel2m import nivel2medio_
-            nivel2medio_()
+            #from nivel2m import nivel2medio_
+            #nivel2medio_()
 
           if nivel3hard_button.draw(screen):
-            print("Inicio")
-            from nivel2d import nivel2dificil_
-            nivel2dificil_()
+            print("Click a nivel 3")
+            menu_state = "nivel2dificil"
+            pygame.mixer.music.stop()
+            #from nivel2d import nivel2dificil_
+            #nivel2dificil_()
 
           if regresarhhard_button.draw(screen):
             menu_state = "jugar"
+
+        if menu_state == "nivel1facil":
+          screen.blit(BG, (0,0))
+          
+          if fondoobjetivos_img.draw(screen):
+            print("hola")
+          
+          if objetivolvl1facil_img.draw(screen):
+            print("hola")
+          
+          if timelvl1f_imagen.draw(screen):
+            print("hola")
+          
+          if jugar1_button.draw(screen):
+            print("hola")
+            from nivel1f import nivel1facil_
+            nivel1facil_()
+
+
+
+        if menu_state == "nivel1medio":
+          screen.blit(BG, (0,0))
+          
+          if fondoobjetivos_img.draw(screen):
+            print("hola")
+
+          if objetivolvl1medio_img.draw(screen):
+            print("hola")
+          
+          if timelvl1m_imagen.draw(screen):
+            print("hola")
+
+          if jugar1_button.draw(screen):
+            print("hola")
+            from nivel1m import nivel1medio_
+            nivel1medio_()
+
+
+
+
+        if menu_state == "nivel1dificil":
+          screen.blit(BG, (0,0))
+          
+          if fondoobjetivos_img.draw(screen):
+            print("hola")
+
+          if objetivolvl1dificil_img.draw(screen):
+            print("hola")
+
+          if timelvl1d_imagen.draw(screen):
+            print("hola")
+        
+          if jugar1_button.draw(screen):
+            print("hola")
+            from nivel1d import nivel1dificil_
+            nivel1dificil_()
+
+
+
+        if menu_state == "nivel2facil":
+          screen.blit(BG, (0,0))
+          
+          if fondoobjetivos_img.draw(screen):
+            print("hola")
+
+          if objetivolvl2facil_img.draw(screen):
+            print("hola")
+          
+          if timelvl2f_imagen.draw(screen):
+            print("hola")
+
+          if jugar1_button.draw(screen):
+            print("hola")
+            from nivel2f import nivel2facil_
+            nivel2facil_()
+      
+
+        if menu_state == "nivel2medio":
+          screen.blit(BG, (0,0))
+          
+          if fondoobjetivos_img.draw(screen):
+            print("hola")
+          
+          if objetivolvl2medio_img.draw(screen):
+            print("hola")
+
+          if timelvl2m_imagen.draw(screen):
+            print("hola")
+
+          if jugar1_button.draw(screen):
+            print("hola")
+            from nivel2m import nivel2medio_
+            nivel2medio_()
+
+        
+        if menu_state == "nivel2dificil":
+          screen.blit(BG, (0,0))
+          
+          if fondoobjetivos_img.draw(screen):
+            print("hola")
+
+          if objetivolvl2dificil_img.draw(screen):
+            print("hola")
+          
+          if timelvl2d_imagen.draw(screen):
+            print("hola")
+
+          if jugar1_button.draw(screen):
+            print("hola")
+            from nivel2d import nivel2dificil_
+            nivel2dificil_()
+          
+          
 
         #Introducción de elementos en boton opciones
         #Estado del juego: En la pantalla opciones
