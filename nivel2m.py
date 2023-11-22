@@ -84,8 +84,8 @@ def nivel2medio_():
                     pygame.draw.rect(surface, "green", (self.x, self.y, self.w * ratio, self.h))
             
         #Barra de vida
-        health_bar = HealthBar(80, 100, 300, 10, 4000)
-        health_bar.hp = 4000
+        health_bar = HealthBar(80, 100, 300, 10, 5000)
+        health_bar.hp = 5000
 
         #Arpon
         arpon = pygame.image.load('imagenes/Personaje/arpon.png').convert_alpha()
@@ -124,7 +124,7 @@ def nivel2medio_():
             'x':100,
             'y': random.randint(100, 850),
             'y':700,
-            'x_change': 2,
+            'x_change': 6,
             'y_change': 0.2,
             'img': basuras_a
         })
@@ -133,7 +133,7 @@ def nivel2medio_():
             'x':200,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 6,
             'y_change': 0.2,
             'img': basuras_b
             })
@@ -142,7 +142,7 @@ def nivel2medio_():
             'x':300,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 6,
             'y_change': 0.2,
             'img': basuras_c
             })
@@ -151,7 +151,7 @@ def nivel2medio_():
             'x':400,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 6,
             'y_change': 0.2,
             'img': basuras_d
             })
@@ -160,7 +160,7 @@ def nivel2medio_():
             'x':500,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 6,
             'y_change': 0.2,
             'img': basuras_f
             })
@@ -193,21 +193,21 @@ def nivel2medio_():
                             #screen = pygame.display.set_mode((ANCHO, ALTO), pygame.RESIZABLE)
                         elif event.type == pygame.KEYDOWN:
                             if event.key == pygame.K_LEFT:
-                                jugadorx_change = -3
+                                jugadorx_change = -6
                                 jugadors3 = jugadors2
                                 arponX = jugadorX+40
                                 arponlimit = 100
                                 #screen.blit(jugadors, (jugadorX, jugadorY))
                             elif event.key == pygame.K_RIGHT:
-                                jugadorx_change = 3
+                                jugadorx_change = 6
                                 jugadors3 = jugadors1
                                 arponX = jugadorX+10
                             elif event.key == pygame.K_DOWN:
-                                arpony_change = 2
+                                arpony_change = 6
                         elif event.type == pygame.KEYUP:
                             jugadorx_change = 0
                             if event.key == pygame.K_DOWN:
-                                arpony_change = -2
+                                arpony_change = -6
 
                         #Mover jugador
                     jugadorX += jugadorx_change
@@ -258,8 +258,6 @@ def nivel2medio_():
                     #Mostrar level1
                     level1_rec = pygame.image.load('imagenes/level2d.png').convert_alpha()
                     screen.blit(level1_rec, (520,10))
-                    objetivo1 = pygame.image.load('imagenes/objetivo1.png').convert_alpha()
-                    screen.blit(objetivo1, (10,10))
                     puntuacion = pygame.image.load('imagenes/puntuacion2.png').convert_alpha()
                     screen.blit(puntuacion, (10,50))
                     tiempo = pygame.image.load("imagenes/tiempo2.png").convert_alpha()
@@ -268,7 +266,7 @@ def nivel2medio_():
                     health_bar.hp -= 1
 
                     #Youwin dectecta
-                    if score == 5:
+                    if score == 60:
                         youwin = True
 
                     if youwin == True:

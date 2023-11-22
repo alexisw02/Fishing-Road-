@@ -84,8 +84,8 @@ def nivel1dificil_():
                     pygame.draw.rect(surface, "green", (self.x, self.y, self.w * ratio, self.h))
             
         #Barra de vida
-        health_bar = HealthBar(80, 100, 300, 10, 4000)
-        health_bar.hp = 4000
+        health_bar = HealthBar(80, 100, 300, 10, 6000)
+        health_bar.hp = 6000
 
         #Arpon
         arpon = pygame.image.load('imagenes/Personaje/arpon.png').convert_alpha()
@@ -124,7 +124,7 @@ def nivel1dificil_():
             'x':100,
             'y': random.randint(100, 850),
             'y':700,
-            'x_change': 2,
+            'x_change': 3,
             'y_change': 0.2,
             'img': basuras_a
         })
@@ -133,7 +133,7 @@ def nivel1dificil_():
             'x':200,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 3,
             'y_change': 0.2,
             'img': basuras_b
             })
@@ -142,7 +142,7 @@ def nivel1dificil_():
             'x':300,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 3,
             'y_change': 0.2,
             'img': basuras_c
             })
@@ -151,7 +151,7 @@ def nivel1dificil_():
             'x':400,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 3,
             'y_change': 0.2,
             'img': basuras_d
             })
@@ -160,7 +160,7 @@ def nivel1dificil_():
             'x':500,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 3,
             'y_change': 0.2,
             'img': basuras_f
             })
@@ -258,8 +258,6 @@ def nivel1dificil_():
                     #Mostrar level1
                     level1_rec = pygame.image.load('imagenes/level3.png').convert_alpha()
                     screen.blit(level1_rec, (520,10))
-                    objetivo1 = pygame.image.load('imagenes/objetivo3.png').convert_alpha()
-                    screen.blit(objetivo1, (10,10))
                     puntuacion = pygame.image.load('imagenes/puntuacion.png').convert_alpha()
                     screen.blit(puntuacion, (10,50))
                     tiempo = pygame.image.load("imagenes/tiempo.png").convert_alpha()
@@ -268,7 +266,7 @@ def nivel1dificil_():
                     health_bar.hp -= 1
 
                     #Youwin dectecta
-                    if score == 5:
+                    if score == 130:
                         youwin = True
 
                     if youwin == True:

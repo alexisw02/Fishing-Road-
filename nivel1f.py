@@ -82,8 +82,8 @@ def nivel1facil_():
                     pygame.draw.rect(surface, "green", (self.x, self.y, self.w * ratio, self.h))
             
         #Barra de vida
-        health_bar = HealthBar(110, 94, 300, 16, 5000)
-        health_bar.hp = 5000
+        health_bar = HealthBar(110, 94, 300, 16, 8000)
+        health_bar.hp = 8000
 
         #Arpon
         arpon = pygame.image.load('imagenes/Personaje/arpon.png').convert_alpha()
@@ -122,7 +122,7 @@ def nivel1facil_():
             'x':100,
             'y': random.randint(100, 850),
             'y':700,
-            'x_change': 2,
+            'x_change': 3,
             'y_change': 0.2,
             'img': basuras_a
         })
@@ -131,7 +131,7 @@ def nivel1facil_():
             'x':200,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 3,
             'y_change': 0.2,
             'img': basuras_b
             })
@@ -140,7 +140,7 @@ def nivel1facil_():
             'x':300,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 3,
             'y_change': 0.2,
             'img': basuras_c
             })
@@ -149,7 +149,7 @@ def nivel1facil_():
             'x':400,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 3,
             'y_change': 0.2,
             'img': basuras_d
             })
@@ -158,7 +158,7 @@ def nivel1facil_():
             'x':500,
             #'y': random.randint(390, 290),
             'y':700,
-            'x_change': 2,
+            'x_change': 3,
             'y_change': 0.2,
             'img': basuras_f
             })
@@ -266,7 +266,7 @@ def nivel1facil_():
                     health_bar.hp -= 1
 
                     #Youwin dectecta
-                    if score == 200:
+                    if score == 75:
                         youwin = True
 
                     if youwin == True:
