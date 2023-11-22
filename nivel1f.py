@@ -185,6 +185,7 @@ def nivel1facil_():
                         if event.type == pygame.QUIT:
                             running = False
                             pygame.quit()
+
                         #elif event.type == pygame.VIDEORESIZE:
                             #ANCHO, ALTO = event.w, event.h
                             #screen = pygame.display.set_mode((ANCHO, ALTO), pygame.RESIZABLE)
@@ -205,11 +206,15 @@ def nivel1facil_():
                             jugadorx_change = 0
                             if event.key == pygame.K_DOWN:
                                 arpony_change = -2
+                    
+                    #pygame.draw.line(screen, NEGRO, (arponX+18, arponY), (600, 69), 5)
 
                         #Mover jugador
                     jugadorX += jugadorx_change
                     jugadorX = max(-10, min(jugadorX, 1100))  # Asegurate de que el jugador no salga de la pantalla
-                        
+
+                    pygame.draw.line(screen, NEGRO, (arponX+18, arponY), (jugadorX+40, 280), 5)
+
                     #Mover arponX
                     arponX += jugadorx_change
                     arponX = max(25, min(arponX, 1110))

@@ -1,81 +1,67 @@
 import pygame
+import sys
 
-# Definimos algunas variables globales
-screen = None
-running = True
+# Inicializar Pygame
+pygame.init()
 
-BLANCO = (255, 255, 255)
+# Definir colores
 NEGRO = (0, 0, 0)
-ROJO = (255, 0, 0)
-VERDE = (0, 255, 0)
-AZUL = (0, 0, 255)
+BLANCO = (255, 255, 255)
 
-SCREEN_WIDTH = 1200
-SCREEN_HEIGHT = 680
+# Configuración de la ventana
+ANCHO = 400
+ALTO = 400
+ventana = pygame.display.set_mode((ANCHO, ALTO))
+pygame.display.set_caption("Simulación de Gancho de Pescador")
 
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+# Posición inicial del gancho
+gancho_x = ANCHO // 2
+gancho_y = 50
 
-font = pygame.font.SysFont("arialblack", 40)
+# Altura de la cuerda
+cuerda_altura = ALTO - gancho_y
 
-# Función para dibujar el menú
-def draw_menu():
-    global screen
-
-    # Limpiamos la pantalla
-    screen.fill((0, 0, 0))
-
-    # Dibujamos el título del menú
-    title_font = pygame.font.Font("freesansbold.ttf", 30)
-    title = title_font.render("Menú de opciones", True, (255, 255, 255))
-    screen.blit(title, (100, 50))
-
-    # Dibujamos las opciones del menú
-    option_font = pygame.font.Font("freesansbold.ttf", 20)
-    options = ["Jugar", "Opciones", "Salir"]
-    for i, option in enumerate(options):
-        option_surface = option_font.render(option, True, (255, 255, 255))
-        screen.blit(option_surface, (100, 100 + i * 30))
-
-# Función para procesar los eventos del menú
-def handle_menu_events():
-    global running
-
-    for event in pygame.event.get():
-        # Si el evento es de cierre de ventana
-        if event.type == pygame.QUIT:
-            running = False
-
-        # Si el evento es de clic de mouse
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            # Obtenemos las coordenadas del clic
-            x, y = event.pos
-
-            # Iteramos por las opciones del menú
-            options = ["Jugar", "Opciones", "Salir"]
-            for i, option in enumerate(options):
-                # Si el clic está dentro del rectángulo de la opción
-                if x > 100 and x < 400 and y > 100 + i * 30 and y < 130 + i * 30:
-                    # Ejecutamos la acción asociada a la opción
-                    if i == 0:
-                        # Comenzamos el juego
-                        pass
-                    elif i == 1:
-                        # Mostramos el menú de opciones
-                        pass
-                    elif i == 2:
-                        # Salimos del juego
-                        running = False
+# Velocidad del gancho
+velocidad_bajada = 5
+velocidad_subida = 5  # Velocidad más lenta al subir
 
 # Bucle principal
-while running:
-    # Dibujamos el menú
-    draw_menu()
+while True:
+    for evento in pygame.event.get():
+        if evento.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
 
-    # Procesamos los eventos del menú
-    handle_menu_events()
+    # Obtener el estado de las teclas
+    teclas = pygame.key.get_pressed()
 
-    # Actualizamos la pantalla
+    # Mover el gancho hacia abajo mientras se presiona la flecha hacia abajo
+    if teclas[pygame.K_DOWN]:
+        gancho_y += velocidad_bajada
+
+        # Limitar la posición del gancho para que no se salga de la ventana
+        if gancho_y > ALTO:
+            gancho_y = ALTO
+
+    else:
+        # Si no se presiona la flecha hacia abajo, subir el gancho de manera más lenta
+        gancho_y -= velocidad_subida
+
+        # Limitar la posición del gancho para que no se salga de la ventana en la parte superior
+        if gancho_y < 50:
+            gancho_y = 50
+
+    # Limpiar la pantalla
+    ventana.fill(BLANCO)
+
+    # Dibujar la cuerda (línea negra)
+    pygame.draw.line(ventana, NEGRO, (ANCHO // 2, 0), (gancho_x, gancho_y), 5)
+
+    # Dibujar el gancho (rectángulo)
+    pygame.draw.rect(ventana, NEGRO, (gancho_x - 10, gancho_y - 10, 20, 20))
+
+    # Actualizar la pantalla
     pygame.display.flip()
 
-# Finalizamos Pygame
-pygame.quit()
+    # Establecer la velocidad de actualización
+    pygame.time.Clock().tick(30)
