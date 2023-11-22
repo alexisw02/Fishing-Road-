@@ -217,6 +217,8 @@ def nivel2medio_():
                     arponX += jugadorx_change
                     arponX = max(25, min(arponX, 1110))
 
+                    pygame.draw.line(screen, NEGRO, (arponX+18, arponY), (jugadorX+40, 280), 5)
+                    
                     #Mover arponY
                     arponY += arpony_change
                     arponY= max(290, min(arponY, 620))

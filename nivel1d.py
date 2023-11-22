@@ -42,7 +42,7 @@ def nivel1dificil_():
     restart_imagen = pygame.image.load('imagenes/Botones/botonrestart.png').convert_alpha()
 
     #botones declarados
-    botonpausa_img = button.Button(1130, 10, botonpausa_imagen, 1)
+    botonpausa_img = button.Button(1100, 10, botonpausa_imagen, 1)
     #restart_img = pygame.tranform.scale(restart_imagen, (60, 60))
 
     #Colocar musica
@@ -216,6 +216,8 @@ def nivel1dificil_():
                     #Mover arponX
                     arponX += jugadorx_change
                     arponX = max(25, min(arponX, 1110))
+                    
+                    pygame.draw.line(screen, NEGRO, (arponX+18, arponY), (jugadorX+40, 280), 5)
 
                     #Mover arponY
                     arponY += arpony_change
