@@ -249,8 +249,8 @@ def nivel1facil_():
                             basura['x'] = random.randint(10, 50)
                         
                         # Mostrar puntuación
-                    score_value = myfont.render(": " + str(score), True, (NEGRO))
-                    screen.blit(score_value, (190, 50))
+                    score_value = myfont.render("Score: " + str(score), True, (NEGRO))
+                    screen.blit(score_value, (20, 50))
 
                     #Mostrar Tiempo
                     health_bar.draw(screen)
@@ -258,8 +258,8 @@ def nivel1facil_():
                     #Mostrar level1
                     level1_rec = pygame.image.load('imagenes/level1.png').convert_alpha()
                     screen.blit(level1_rec, (520, 10))
-                    puntuacion = pygame.image.load('imagenes/puntuacion.png').convert_alpha()
-                    screen.blit(puntuacion, (10, 50))
+                    #puntuacion = pygame.image.load('imagenes/puntuacion.png').convert_alpha()
+                    #screen.blit(puntuacion, (10, 50))
                     tiempo = pygame.image.load("imagenes/tiempo.png").convert_alpha()
                     screen.blit(tiempo, (10, 90))
                     #Decremento
