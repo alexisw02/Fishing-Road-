@@ -249,7 +249,7 @@ def nivel1dificil_():
                             basura['x'] = random.randint(10, 50)
                         
                         # Mostrar puntuación
-                    score_value = myfont.render(": " + str(score), True, (VERDE))
+                    score_value = myfont.render("Score: " + str(score), True, (VERDE))
                     screen.blit(score_value, (125, 55))
 
                     #Mostrar Tiempo
@@ -258,8 +258,8 @@ def nivel1dificil_():
                     #Mostrar level1
                     level1_rec = pygame.image.load('imagenes/level3.png').convert_alpha()
                     screen.blit(level1_rec, (520,10))
-                    puntuacion = pygame.image.load('imagenes/puntuacion.png').convert_alpha()
-                    screen.blit(puntuacion, (10,50))
+                    #puntuacion = pygame.image.load('imagenes/puntuacion.png').convert_alpha()
+                    #screen.blit(puntuacion, (10,50))
                     tiempo = pygame.image.load("imagenes/tiempo.png").convert_alpha()
                     screen.blit(tiempo, (10, 90))
                     #Decremento
@@ -323,9 +323,14 @@ def victory():
         home_imagen = pygame.image.load('imagenes/Botones/pantallaprincipal.png').convert_alpha()
         ganadordraw = pygame.image.load("imagenes/Victoria/ganadordraw.png").convert_alpha()
         ganadortext = pygame.image.load("imagenes/Victoria/ganadortext.png").convert_alpha()
-        siguientenivel_imagen = pygame.image.load('imagenes/Botones/siguientenivel.png').convert_alpha()
+        #siguientenivel_imagen = pygame.image.load('imagenes/Botones/siguientenivel.png').convert_alpha()
         home_imagen = pygame.image.load('imagenes/Botones/pantallaprincipal.png').convert_alpha()
         restart_imagen = pygame.image.load('imagenes/Botones/botonrestart.png').convert_alpha()
+        fondoobjetivos_imagen = pygame.image.load('imagenes/Fondos/objetivos.png').convert_alpha()
+        fondoobjetivos_imagen = pygame.transform.scale(fondoobjetivos_imagen, (1200, 680))
+        timelvl1d_imagen = pygame.image.load('imagenes/timelvl1d.png').convert_alpha()
+        objetivolvl1d_imagen = pygame.image.load('imagenes/objetivoslvl1d.png').convert_alpha()
+        jugar1_imagen = pygame.image.load("imagenes/Botones/botondeplay1.png").convert_alpha()
 
         #Funcion para darle uso al boton después de definirlo
         home_button1 = button.Button(10, 130, home_imagen, 1)
@@ -333,7 +338,11 @@ def victory():
         ganador_draw = button.Button(460, 270, ganadordraw, 1)
         #siguientenivel_boton = button.Button(10, 450, siguientenivel_imagen, 1)
         restart_boton = button.Button(10, 290, restart_imagen, 1)
-
+        fondoobjetivos_img = button.Button(0, 0, fondoobjetivos_imagen, 1)
+        objetivolvl1dificil_img = button.Button(100, 230, objetivolvl1d_imagen, 1)
+        timelvl1d_imagen = button.Button(270, 470, timelvl1d_imagen, 1)
+        jugar1_button = button.Button(70, 50, jugar1_imagen, 1)
+        
         lago = pygame.image.load("imagenes/Fondos/castillolago.png").convert_alpha()
         lago = pygame.transform.scale(lago, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -345,22 +354,30 @@ def victory():
             if menu_state == "pantalladevictoria":
                 screen.blit(lago, (0, 0))
 
-            if ganador_text.draw(screen):
-                print("Ganador texto")
-            if ganador_draw.draw(screen):
-                print("Ganador imagen")
-            #if siguientenivel_boton.draw(screen):
-                #print("Siguiente nivel")
-            if restart_boton.draw(screen):
-                print("Restart boton")
-                from nivel1d import nivel1dificil_
-                nivel1dificil_()
-
+                if ganador_text.draw(screen):
+                    print("Ganador texto")
+                if ganador_draw.draw(screen):
+                    print("Ganador imagen")
+                #if siguientenivel_boton.draw(screen):
+                    #print("Siguiente nivel")
+                if restart_boton.draw(screen):
+                    menu_state = "objetivosmis"
                 #Regresar al home en caso de presionar
-            if home_button1.draw(screen):
-                from main import main
-                main()
-
+                if home_button1.draw(screen):
+                    from main import main
+                    main()
+            
+            if menu_state == "objetivosmis":
+                
+                if fondoobjetivos_img.draw(screen):
+                    print("hola")
+                if objetivolvl1dificil_img.draw(screen):
+                    print("hola")
+                if timelvl1d_imagen.draw(screen):
+                    print("hola")
+                if jugar1_button.draw(screen):
+                    nivel1dificil_()
+                    
             #Función para procesar los eventos
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -409,13 +426,22 @@ def defeat():
         gameovertext = pygame.image.load("imagenes/Derrota/gameovertext.png").convert_alpha()
         home_imagen = pygame.image.load('imagenes/Botones/pantallaprincipal.png').convert_alpha()
         restart_imagen = pygame.image.load('imagenes/Botones/botonrestart.png').convert_alpha()
-
+        fondoobjetivos_imagen = pygame.image.load('imagenes/Fondos/objetivos.png').convert_alpha()
+        fondoobjetivos_imagen = pygame.transform.scale(fondoobjetivos_imagen, (1200, 680))
+        timelvl1d_imagen = pygame.image.load('imagenes/timelvl1d.png').convert_alpha()
+        objetivolvl1d_imagen = pygame.image.load('imagenes/objetivoslvl1d.png').convert_alpha()
+        jugar1_imagen = pygame.image.load("imagenes/Botones/botondeplay1.png").convert_alpha()
+        
         #Funcion para darle uso al boton después de definirlo
         home_button1 = button.Button(10, 130, home_imagen, 1)
         defeat_text = button.Button(200, 50, gameovertext, 1)
         defeat_draw = button.Button(490, 310, gameoverdraw, 1)
         restart_boton = button.Button(10, 290, restart_imagen, 1)
-
+        fondoobjetivos_img = button.Button(0, 0, fondoobjetivos_imagen, 1)
+        objetivolvl1dificil_img = button.Button(100, 230, objetivolvl1d_imagen, 1)
+        timelvl1d_imagen = button.Button(270, 470, timelvl1d_imagen, 1)
+        jugar1_button = button.Button(70, 50, jugar1_imagen, 1)
+        
         lago = pygame.image.load("imagenes/Fondos/castillolago.png").convert_alpha()
         lago = pygame.transform.scale(lago, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -432,14 +458,22 @@ def defeat():
             if defeat_draw.draw(screen):
                 print("Ganador imagen")
             if restart_boton.draw(screen):
-                print("Restart boton")
-                from nivel1d import nivel1dificil_
-                nivel1dificil_()
-
-                #Regresar al home en caso de presionar
+                menu_state = "objetivosmis"
+            #Regresar al home en caso de presionar
             if home_button1.draw(screen):
                 from main import main
                 main()
+            
+            if menu_state == "objetivosmis":
+                                
+                if fondoobjetivos_img.draw(screen):
+                    print("hola")
+                if objetivolvl1dificil_img.draw(screen):
+                    print("hola")
+                if timelvl1d_imagen.draw(screen):
+                    print("hola")
+                if jugar1_button.draw(screen):
+                    nivel1dificil_()
 
             #Función para procesar los eventos
             for event in pygame.event.get():
@@ -482,7 +516,12 @@ def pause():
         restart_imagen = pygame.image.load('imagenes/Botones/botonrestart1.png').convert_alpha()
         pausetext_image = pygame.image.load('imagenes/Botones/pausetext.png').convert_alpha()
         pauseoptions_image = pygame.image.load('imagenes/Botones/pauseoptions.png').convert_alpha()
-
+        fondoobjetivos_imagen = pygame.image.load('imagenes/Fondos/objetivos.png').convert_alpha()
+        fondoobjetivos_imagen = pygame.transform.scale(fondoobjetivos_imagen, (1200, 680))
+        timelvl1d_imagen = pygame.image.load('imagenes/timelvl1d.png').convert_alpha()
+        objetivolvl1d_imagen = pygame.image.load('imagenes/objetivoslvl1d.png').convert_alpha()
+        jugar1_imagen = pygame.image.load("imagenes/Botones/botondeplay1.png").convert_alpha()
+        
         #Funcion para darle uso al boton después de definirlo
         home_button1 = button.Button(25, 100, home_imagen, 1)
         botonson_button = button.Button(700, 300, botonnomute_imagen, 1)
@@ -490,7 +529,11 @@ def pause():
         restart_boton1 = button.Button(25, 250, restart_imagen, 1)
         pausetext_img = button.Button(375, 277, pausetext_image, 1)
         pauseoption_img = button.Button(10, 40, pauseoptions_image, 1)
-
+        fondoobjetivos_img = button.Button(0, 0, fondoobjetivos_imagen, 1)
+        objetivolvl1dificil_img = button.Button(100, 230, objetivolvl1d_imagen, 1)
+        timelvl1d_imagen = button.Button(270, 470, timelvl1d_imagen, 1)
+        jugar1_button = button.Button(70, 50, jugar1_imagen, 1)
+        
         #Función para revisar si el juego está pausado
         if game_paused == False:
 
@@ -499,18 +542,29 @@ def pause():
             if menu_state == "fondopausa":
                 screen.blit(lago, (0, 0))
 
-            if pausetext_img.draw(screen):
-                print("Texto pausa")
-            
-            if pauseoption_img.draw(screen):
-                print("Opciones")
+                if pausetext_img.draw(screen):
+                    print("Texto pausa")
+                
+                if pauseoption_img.draw(screen):
+                    print("Opciones")
 
-            if home_button1.draw(screen):
-                from main import main
-                main()
+                if home_button1.draw(screen):
+                    from main import main
+                    main()
+                
+                if restart_boton1.draw(screen):
+                    menu_state = "objetivosmis"
             
-            if restart_boton1.draw(screen):
-                nivel1dificil_()
+            if menu_state == "objetivosmis":
+                                
+                if fondoobjetivos_img.draw(screen):
+                    print("hola")
+                if objetivolvl1dificil_img.draw(screen):
+                    print("hola")
+                if timelvl1d_imagen.draw(screen):
+                    print("hola")
+                if jugar1_button.draw(screen):
+                    nivel1dificil_()
 
             #Función para procesar los eventos
             for event in pygame.event.get():

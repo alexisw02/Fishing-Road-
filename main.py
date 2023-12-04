@@ -93,6 +93,7 @@ def main():
       botoneasy_imagen = pygame.image.load('imagenes/Botones/botoneasy.png').convert_alpha()
       botondificil_imagen = pygame.image.load('imagenes/Botones/botonhard.png').convert_alpha()
       fondoobjetivos_imagen = pygame.image.load('imagenes/Fondos/objetivos.png').convert_alpha()
+      fondoobjetivos_imagen = pygame.transform.scale(fondoobjetivos_imagen, (1200, 680))
       timelvl1f_imagen = pygame.image.load('imagenes/timelvl1f.png').convert_alpha()
       objetivolvl1f_imagen = pygame.image.load('imagenes/objetivoslvl1f.png').convert_alpha()
       timelvl2m_imagen = pygame.image.load('imagenes/timelvl1m.png').convert_alpha()
@@ -105,7 +106,7 @@ def main():
       objetivolvl2m_imagen = pygame.image.load('imagenes/objetivoslvl2m.png').convert_alpha()
       timelvl2d_imagen = pygame.image.load('imagenes/timelvl2d.png').convert_alpha()
       objetivolvl2d_imagen = pygame.image.load('imagenes/objetivoslvl2d.png').convert_alpha()
-      fondoobjetivos_imagen = pygame.transform.scale(fondoobjetivos_imagen, (1200, 680))
+      #fondoobjetivos_imagen = pygame.transform.scale(fondoobjetivos_imagen, (1200, 680))
       timelvl1f_imagen = pygame.image.load('imagenes/timelvl1f.png').convert_alpha()
       timelvl1m_imagen = pygame.image.load('imagenes/timelvl1m.png').convert_alpha()
       timelvl1d_imagen = pygame.image.load('imagenes/timelvl1d.png').convert_alpha()
@@ -160,7 +161,7 @@ def main():
       objetivolvl1dificil_img = button.Button(60, 230, objetivolvl1d_imagen, 1)
       objetivolvl2facil_img = button.Button(70, 230, objetivolvl2f_imagen, 1)
       objetivolvl2medio_img = button.Button(70, 230, objetivolvl2m_imagen, 1)
-      objetivolvl2dificil_img = button.Button(70, 230, objetivolvl2m_imagen, 1)
+      objetivolvl2dificil_img = button.Button(70, 230, objetivolvl2d_imagen, 1)
       timelvl1f_imagen = button.Button(270, 470, timelvl1f_imagen, 1)
       timelvl1m_imagen = button.Button(270, 470, timelvl1m_imagen, 1)
       timelvl1d_imagen = button.Button(270, 470, timelvl1d_imagen, 1)
@@ -215,22 +216,16 @@ def main():
             print("Click a nivel 1")
             menu_state = "nivel1facil"
             pygame.mixer.music.stop()
-            #from nivel1f import nivel1facil_
-            #nivel1facil_()
 
           if nivel2_button.draw(screen):
             print("Click a nivel 2")
             menu_state = "nivel1medio"
             pygame.mixer.music.stop()
-            #from nivel1m import nivel1medio_
-            #nivel1medio_()
 
           if nivel3_button.draw(screen):
             print("Click a nivel 3")
             menu_state = "nivel1dificil"
             pygame.mixer.music.stop()
-            #from nivel1d import nivel1dificil_
-            #nivel1dificil_()
 
           if regresar1_button.draw(screen):
             menu_state = "jugar"
@@ -249,31 +244,23 @@ def main():
             print("Click a nivel 2")
             menu_state = "nivel2medio"
             pygame.mixer.music.stop()
-            #from nivel2m import nivel2medio_
-            #nivel2medio_()
 
           if nivel3hard_button.draw(screen):
             print("Click a nivel 3")
             menu_state = "nivel2dificil"
             pygame.mixer.music.stop()
-            #from nivel2d import nivel2dificil_
-            #nivel2dificil_()
 
           if regresarhhard_button.draw(screen):
             menu_state = "jugar"
 
         if menu_state == "nivel1facil":
           screen.blit(BG, (0,0))
-          
           if fondoobjetivos_img.draw(screen):
             print("hola")
-          
           if objetivolvl1facil_img.draw(screen):
             print("hola")
-          
           if timelvl1f_imagen.draw(screen):
             print("hola")
-          
           if jugar1_button.draw(screen):
             print("hola")
             from nivel1f import nivel1facil_
@@ -286,18 +273,14 @@ def main():
           
           if fondoobjetivos_img.draw(screen):
             print("hola")
-
           if objetivolvl1medio_img.draw(screen):
             print("hola")
-          
           if timelvl1m_imagen.draw(screen):
             print("hola")
-
           if jugar1_button.draw(screen):
             print("hola")
             from nivel1m import nivel1medio_
             nivel1medio_()
-
 
 
 
@@ -306,13 +289,10 @@ def main():
           
           if fondoobjetivos_img.draw(screen):
             print("hola")
-
           if objetivolvl1dificil_img.draw(screen):
             print("hola")
-
           if timelvl1d_imagen.draw(screen):
             print("hola")
-        
           if jugar1_button.draw(screen):
             print("hola")
             from nivel1d import nivel1dificil_
@@ -325,13 +305,10 @@ def main():
           
           if fondoobjetivos_img.draw(screen):
             print("hola")
-
           if objetivolvl2facil_img.draw(screen):
             print("hola")
-          
           if timelvl2f_imagen.draw(screen):
             print("hola")
-
           if jugar1_button.draw(screen):
             print("hola")
             from nivel2f import nivel2facil_
@@ -340,16 +317,13 @@ def main():
 
         if menu_state == "nivel2medio":
           screen.blit(BG, (0,0))
-          
+
           if fondoobjetivos_img.draw(screen):
             print("hola")
-          
           if objetivolvl2medio_img.draw(screen):
             print("hola")
-
           if timelvl2m_imagen.draw(screen):
             print("hola")
-
           if jugar1_button.draw(screen):
             print("hola")
             from nivel2m import nivel2medio_
@@ -361,20 +335,16 @@ def main():
           
           if fondoobjetivos_img.draw(screen):
             print("hola")
-
           if objetivolvl2dificil_img.draw(screen):
             print("hola")
-          
           if timelvl2d_imagen.draw(screen):
             print("hola")
-
           if jugar1_button.draw(screen):
             print("hola")
             from nivel2d import nivel2dificil_
             nivel2dificil_()
           
           
-
         #Introducción de elementos en boton opciones
         #Estado del juego: En la pantalla opciones
         if menu_state == "opciones":
@@ -485,7 +455,6 @@ def main():
           #Si se presiona el boton regresa a la pantalla principal
           if home_button.draw(screen):
             menu_state = "main"
-
 
       #Función para procesar los eventos
       for event in pygame.event.get():
